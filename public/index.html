@@ -1,17 +1,136 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                colors: {
+                    'gray-100': '#F2F2F2',
+                    'gray-200': '#D9D9D9',
+                    'gray-300': '#808080',
+                    'gray-400': '#333333',
+                    'gray-500': '#262626',
+                    'gray-600': '#1A1A1A',
+                    'gray-700': '#0D0D0D',
+                    'purple': '#8284FA',
+                    'purple-dark': '#5E60CE',
+                    'blue': '#4EA8DE',
+                    'blue-dark': '#1E6F9F',
+                },
+                extend: {},
+            },
+        }
+    </script>
+    <title>To-do</title>
+</head>
+
+<body class="text-gray-100 bg-gray-600 font-[Inter]">
+    <div class="absolute w-full h-[16.875rem] bg-gray-700 sm:h-[12.5rem] -z-50"></div>
+    <div class="container flex flex-col items-center mx-auto max-w-7xl">
+        <div class="flex items-center gap-3 mt-[4.5rem]">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="36" viewBox="0 0 22 36" fill="none">
+                    <g clip-path="url(#clip0_43_111)">
+                        <path
+                            d="M11.0215 2.93302C14.1472 6.9011 15.8157 11.7944 15.7552 16.8155V18.0141L16.7864 18.6416C18.1189 19.4482 19.1126 20.6993 19.5866 22.1669C19.1705 21.8605 18.7351 21.5803 18.2832 21.3278L15.5332 19.7838L15.039 22.9001C14.9962 23.1755 14.9389 23.4485 14.8672 23.718H7.16145C7.04686 23.3655 6.95376 23.0129 6.86783 22.6463L6.24478 19.8261L3.70962 21.2362C3.28609 21.473 2.87717 21.7344 2.48501 22.0188C2.96818 20.5682 3.94117 19.3242 5.24218 18.4935L6.22329 17.866V16.7521C6.24099 11.7513 7.92961 6.89523 11.0286 2.93302H11.0215ZM11.0286 0C10.8679 0.000390307 10.7128 0.0579856 10.5918 0.162162L10.5273 0.218566C6.39772 4.76564 4.1046 10.6454 4.08202 16.745C2.32961 17.8643 1.03244 19.5543 0.417202 21.5197C-0.19804 23.485 -0.0922329 25.6007 0.716133 27.4971C1.5677 25.6455 2.99125 24.1058 4.78384 23.0975C4.96362 23.8642 5.20304 24.6161 5.49999 25.3467C5.53765 25.4871 5.62112 25.6114 5.73757 25.7006C5.85402 25.7898 5.997 25.8388 6.14452 25.8402H16.0846C16.2851 25.8402 16.4857 25.6498 16.5859 25.3537C16.8757 24.6592 17.0778 23.9322 17.1875 23.1892C18.9835 24.1932 20.4082 25.7342 21.2552 27.5887C22.1123 25.7017 22.245 23.5727 21.6287 21.5967C21.0123 19.6206 19.6888 17.9319 17.9036 16.8437C17.9745 10.7082 15.6935 4.77179 11.5156 0.218566C11.4534 0.150085 11.3773 0.0952397 11.2921 0.0575871C11.207 0.0199344 11.1148 0.000314749 11.0215 0L11.0286 0Z"
+                            fill="#4EA8DE" />
+                        <path
+                            d="M11.0215 16.1598C10.4714 16.1598 9.93367 15.9995 9.47602 15.699C9.01837 15.3986 8.66131 14.9715 8.44984 14.4716C8.23838 13.9716 8.18197 13.4213 8.28773 12.8898C8.39349 12.3584 8.65669 11.8697 9.04414 11.4853C9.4316 11.1009 9.92597 10.838 10.4649 10.7298C11.0039 10.6216 11.5634 10.6729 12.0728 10.8773C12.5822 11.0816 13.0187 11.4298 13.3274 11.8781C13.6361 12.3263 13.803 12.8545 13.8073 13.396C13.8158 13.7469 13.7541 14.0961 13.6255 14.4235C13.497 14.751 13.3042 15.0503 13.0581 15.3043C12.812 15.5583 12.5175 15.7622 12.1914 15.9041C11.8653 16.0461 11.514 16.1234 11.1575 16.1316C11.1125 16.1387 11.0665 16.1387 11.0215 16.1316V16.1598Z"
+                            fill="#4EA8DE" />
+                        <path
+                            d="M14.8958 27.5958C14.7166 27.5901 14.5381 27.6198 14.3707 27.683C14.2033 27.7462 14.0504 27.8416 13.921 27.9638C13.7916 28.086 13.6883 28.2323 13.6171 28.3943C13.5459 28.5563 13.5083 28.7307 13.5065 28.9072V33.067C13.5065 33.4297 13.6529 33.7776 13.9134 34.0342C14.174 34.2907 14.5274 34.4348 14.8958 34.4348C15.2643 34.4348 15.6177 34.2907 15.8782 34.0342C16.1388 33.7776 16.2851 33.4297 16.2851 33.067V28.9636C16.2909 28.7877 16.261 28.6126 16.1972 28.4482C16.1335 28.2839 16.0371 28.1337 15.9138 28.0064C15.7905 27.879 15.6427 27.7772 15.479 27.7067C15.3153 27.6362 15.1389 27.5985 14.9603 27.5958H14.8958Z"
+                            fill="#5E60CE" />
+                        <path
+                            d="M7.16145 27.5957C6.97922 27.5863 6.79691 27.6129 6.62537 27.6742C6.45383 27.7355 6.29656 27.8302 6.16293 27.9525C6.0293 28.0749 5.92204 28.2224 5.84752 28.3864C5.77299 28.5504 5.73274 28.7275 5.72916 28.9071V33.067C5.72916 33.4297 5.87553 33.7776 6.13608 34.0341C6.39663 34.2906 6.75001 34.4348 7.11848 34.4348C7.48695 34.4348 7.84033 34.2906 8.10088 34.0341C8.36143 33.7776 8.5078 33.4297 8.5078 33.067V28.9635C8.51353 28.7877 8.48364 28.6125 8.41989 28.4482C8.35614 28.2838 8.2598 28.1336 8.13649 28.0063C8.01317 27.879 7.86535 27.7771 7.70164 27.7067C7.53792 27.6362 7.3616 27.5985 7.18293 27.5957H7.16145Z"
+                            fill="#5E60CE" />
+                        <path
+                            d="M10.9212 27.5958C10.7425 27.592 10.5648 27.623 10.3983 27.6869C10.2317 27.7507 10.0796 27.8463 9.95059 27.9681C9.82157 28.0899 9.71819 28.2355 9.64635 28.3966C9.57451 28.5577 9.53561 28.7312 9.53189 28.9072V34.6392C9.53189 35.002 9.67827 35.3499 9.93881 35.6064C10.1994 35.8629 10.5527 36.007 10.9212 36.007C11.2897 36.007 11.6431 35.8629 11.9036 35.6064C12.1642 35.3499 12.3105 35.002 12.3105 34.6392V28.9988C12.3163 28.823 12.2864 28.6478 12.2226 28.4835C12.1589 28.3191 12.0625 28.1689 11.9392 28.0416C11.8159 27.9143 11.6681 27.8124 11.5044 27.7419C11.3407 27.6714 11.1643 27.6337 10.9857 27.631L10.9212 27.5958Z"
+                            fill="#5E60CE" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_43_111">
+                            <rect width="22" height="36" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            </span>
+            <span class="text-4xl font-black">
+                <span class="text-blue">To</span><span class="text-purple-dark">do</span>
+            </span>
+        </div>
+        <form id="todoForm" class="mt-[3.31rem] p-2.5 flex items-center w-full gap-2">
+            <input type="text" placeholder="Input Todo" id="taskInput"
+                class="w-full p-4 bg-gray-500 border-gray-700 rounded-lg placeholder:text-sm form-input focus:ring-purple-dark">
+            <button type="submit"
+                class="flex items-center justify-center gap-2 p-4 text-sm font-bold text-gray-100 rounded-lg bg-blue-dark">
+                <span>Add</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+            </button>
+        </form>
+        <div class="flex flex-col p-2.5 mt-[3.37rem] w-full gap-6">
+            <div class="flex items-center justify-between text-sm">
+                <span class="font-bold text-blue">Todo List <span
+                        class="px-2 py-0.5 bg-gray-400 text-gray-100 rounded-full" id="todo-count">0</span></span>
+                <span class="font-bold text-purple-dark">Complete <span
+                        class="px-2 py-0.5 bg-gray-400 text-gray-100 rounded-full" id="complete-count">0</span></span>
+            </div>
+            <div class="border-t border-gray-400 rounded-lg">
+
+                <ul id="todo-list" class="flex flex-col gap-3">
+
+                    <!-- If Empty -->
+                    <!-- <div id="empty" class="flex flex-col items-center gap-4 p-16 text-base text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-14 h-14">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184" />
+                        </svg>
+                        <span class="text-center text-gray-300">
+                            <span class="font-bold">Your List Is Empty</span>
+                            <span class="">Create tasks and organize your todo</span>
+                        </span>
+                    </div> -->
+
+                    <!-- If not Empty -->
+                    <!-- <li class="flex items-start justify-between gap-3 p-4 text-sm bg-gray-500 border-gray-400 rounded-lg">
+
+                        <input type="checkbox" class="rounded-full mt-0.5 w-5 bg-gray-500 border-2 border-blue focus:ring-offset-0 focus:ring-blue focus:ring-offset-blue checked:bg-purple-dark checked:focus:ring-purple-dark checked:focus:ring-offset-purple-dark checked:hover:bg-purple checked:focus:bg-purple-dark h-5" name="" id="">
+
+                        <p class="w-full text-sm ">Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Illum
+                            placeat, iure
+                            pariatur
+                            provident veniam unde minus sit tempora facilis deserunt.
+                        </p>
+
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                            </svg>
+                        </button>
+
+
+                    </li> -->
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
 </html>
